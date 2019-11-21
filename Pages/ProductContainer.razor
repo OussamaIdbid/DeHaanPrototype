@@ -34,17 +34,18 @@
 @code{
     [Parameter]
     public int Id {get; set;}
+
+
     IEnumerable<Product> products;
 
-
- 
- 
   
     protected override async Task OnInitializedAsync()  
     {  
         products = await ProductService.GetProductsByCategory(Id);  
         
     }
+    
+    
 
 
 

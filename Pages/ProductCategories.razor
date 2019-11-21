@@ -15,21 +15,21 @@
             @foreach (var category in categories)
 
             {  
-            <MatChip Label=@category.CategoryName  class='category-button mat-elevation-z4 mat-layout-grid-cell mat-layout-grid-cell-span-2' @onclick="getIndexClickedCategory">
+            <MatChip Label=@category.CategoryName  class='category-button mat-elevation-z4 mat-layout-grid-cell mat-layout-grid-cell-span-2' @onclick="OnClick">
             </MatChip>               
             }
         }              
     </MatChipSet>
 
-    <div>
-    clicked index was: <span id="indexClicked"></span>
-    </div>
+
 
 @code{
 
     IEnumerable<Category> categories;
     IEnumerable<Product> products; 
     int index;
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
      
 
     protected override async Task OnInitializedAsync()  

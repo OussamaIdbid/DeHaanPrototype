@@ -8,8 +8,12 @@
 		        <i class="material-icons" id='menu-icon'>menu</i>
             </div>
             <div id="product-container" class=''>
-                <ProductCategories></ProductCategories>
-                <ProductContainer></ProductContainer>
+                <ProductCategories OnClick="@addToList"></ProductCategories>
+                @foreach (var item in list)
+                {
+                    @item;
+                }
+                
                 
  
             </div>
@@ -17,7 +21,7 @@
 
 
         <div id='right' class='container col-4 bg-white'>
-            <div id='order-container'>@CustomRender</div>
+            <div id='order-container'></div>
                 <div id='checkout-container'>
                     <div id="price-container" class='text-muted'>
                         <p id='discount' >Discount</p>
@@ -36,23 +40,27 @@
     </div>
 
 @code {
-
+    private int i = 0;
+    List<RenderFragment> list = new List<RenderFragment>();
     RenderFragment CustomRender { get; set;}
     RenderFragment CreateItem() => builder =>
     {
-        builder.OpenComponent(0, typeof(OrderLine));
-        builder.AddAttribute(1, "name", "TEST PRODUCT");
-        builder.AddAttribute(1, "amount", "2");
-        builder.AddAttribute(1, "price", "3.80");
+        
+        builder.OpenComponent(0, typeof(ProductContainer));
+        builder.AddAttribute(1, "Id",i );
         builder.CloseComponent();
         
 
-
     };
-    void RenderComponent(){
-
-        CustomRender = CreateItem();
+    void addToList(MouseEventArgs e){
+        if(list.Count > 0){
+            list.RemoveAt(0);
+        }
+        list.Add(CreateItem());
+        i++;
     }
+
+
 }
 
 
