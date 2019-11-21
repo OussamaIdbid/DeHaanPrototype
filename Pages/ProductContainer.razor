@@ -47,7 +47,10 @@
         
     }
 
-    private void NotifyStateChanged() => OnChange?.Invoke();
+        private void RefreshMe()
+        {
+            StateHasChanged();
+        }
 
     
     

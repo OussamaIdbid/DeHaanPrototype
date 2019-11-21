@@ -37,7 +37,7 @@
     </div>
 
 @code {
-    private int i = 1;
+    private int i = 4;
     List<RenderFragment> list = new List<RenderFragment>();
     RenderFragment CustomRender { get; set;}
     RenderFragment CreateItem() => builder =>
@@ -49,14 +49,10 @@
         
 
     };
-
-
         void RenderComponent(MouseEventArgs e){
 
         CustomRender = CreateItem();
     }
-
-
 
 }
 
