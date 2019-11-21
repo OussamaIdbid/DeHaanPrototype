@@ -35,6 +35,8 @@
     [Parameter]
     public int Id {get; set;}
 
+    public event Action OnChange;
+
 
     IEnumerable<Product> products;
 
@@ -44,6 +46,10 @@
         products = await ProductService.GetProductsByCategory(Id);  
         
     }
+
+    private void NotifyStateChanged() => OnChange?.Invoke();
+
+    
     
     
 

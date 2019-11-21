@@ -8,11 +8,8 @@
 		        <i class="material-icons" id='menu-icon'>menu</i>
             </div>
             <div id="product-container" class=''>
-                <ProductCategories OnClick="@addToList"></ProductCategories>
-                @foreach (var item in list)
-                {
-                    @item;
-                }
+                <ProductCategories OnClick="@RenderComponent"></ProductCategories>
+                @CustomRender
                 
                 
  
@@ -40,7 +37,7 @@
     </div>
 
 @code {
-    private int i = 0;
+    private int i = 1;
     List<RenderFragment> list = new List<RenderFragment>();
     RenderFragment CustomRender { get; set;}
     RenderFragment CreateItem() => builder =>
@@ -52,13 +49,13 @@
         
 
     };
-    void addToList(MouseEventArgs e){
-        if(list.Count > 0){
-            list.RemoveAt(0);
-        }
-        list.Add(CreateItem());
-        i++;
+
+
+        void RenderComponent(MouseEventArgs e){
+
+        CustomRender = CreateItem();
     }
+
 
 
 }
