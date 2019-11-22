@@ -17,12 +17,12 @@ namespace WebApplication.Data{
         {  
             using (var conn = new SqlConnection(_configuration.Value))  
             {  
-                const string query = @"insert into dbo.Product (Name,Price) values (@Name,@Price)";  
+                const string query = @"insert into dbo.Product (Name,Price,CategoryId) values (@Name,@Price,@CategoryId)";  
                 if (conn.State == ConnectionState.Closed)  
                     conn.Open();  
                 try  
                 {  
-                    await conn.ExecuteAsync(query, new { product.Name, product.Price }, commandType: CommandType.Text);  
+                    await conn.ExecuteAsync(query, new { product.Name, product.Price,product.CategoryId }, commandType: CommandType.Text);  
                 }  
                 catch (Exception ex)  
                 {  

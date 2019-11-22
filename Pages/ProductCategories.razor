@@ -15,7 +15,7 @@
             @foreach (var category in categories)
 
             {  
-            <MatChip Label=@category.CategoryName  class='category-button mat-elevation-z4 mat-layout-grid-cell mat-layout-grid-cell-span-2' @onclick="OnClick" bind='@category.CategoryId' >
+            <MatChip Label=@category.CategoryName  class='category-button mat-elevation-z4 mat-layout-grid-cell mat-layout-grid-cell-span-2' @onclick="OnClick" >
             </MatChip>               
             }
         }              
