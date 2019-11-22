@@ -26,7 +26,8 @@
 @code{
 
     IEnumerable<Category> categories;
-    IEnumerable<Product> products; 
+    IEnumerable<Product> products;
+    int id; 
 
     [Parameter]
     public int index {get; set;}
@@ -37,6 +38,7 @@
     protected override async Task OnInitializedAsync()  
     {  
         categories = await CategoryService.GetCategories();
+
     }
     async Task getIndexClickedCategory(){
         var response = await JsRuntime.InvokeAsync<int>( identifier:"getButtonIndex",
