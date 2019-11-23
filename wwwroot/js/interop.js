@@ -1,27 +1,34 @@
-<<<<<<< HEAD
-function getButtonIndex(index){
-    var clickedIndex;
-
-    $('.category-button').click(function(){
-        clickedIndex = $('.category-button').index(this);
-    });
-    
-    
-    return clickedIndex;
-}
-
-function setElementTextById(id,num){
-    document.getElementById(id).innerText = "fafam";
-
-=======
 function getButtonIndex(){
     
-
+ var clickedIndex;
     $('.category-button').click(function(){
-        alert( $('.category-button').index(this) );
+        alert( $('.category-button').index(this) + 1 )
+
+        clickedIndex = $('.category-button').index(this) + 1
     });
     
-    var clickedIndex = $('.category-button').index(this);
-    return clickedIndex;
->>>>>>> 6f49a51a5d3aeb241d10ece2d50fabb0b33ef04a
+    return clickedIndex
+   // var clickedIndex = $('.category-button').index(this);
+
+}
+
+function emptyFields(){
+    $('#name-input').val('Naam van het product');
+    $('#price-input').val('Prijs van het product');
+    $('#category-input').val('cSelecteer categorie');
+
+    var div = document.createElement('div');
+    $(div).attr('class','alert alert-success')
+    $(div).attr('role','alert')
+    $(div).html('Product toegevoegd')
+
+
+    $('#product-add-form').append(div)
+    setTimeout(function(){
+
+        $(div).remove()
+    },2000)
+    
+    
+
 }
