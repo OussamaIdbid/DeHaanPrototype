@@ -3,6 +3,10 @@
     "",
     "\\Pages"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\Pages\\_Host.cshtml",
+=======
+  "SelectedNode": "\\Pages\\ProductContainer.razor",
+>>>>>>> ce5a935cd8f2edc2d8f70583aa6f74ea12b938dd
   "PreviewInSolutionExplorer": false
 }
