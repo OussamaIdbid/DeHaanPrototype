@@ -1,6 +1,6 @@
 function getButtonIndex(){
     
- var clickedIndex;
+    var clickedIndex;
     $('.category-button').click(function(){
         alert( $('.category-button').index(this) + 1 )
 

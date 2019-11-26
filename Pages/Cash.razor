@@ -9,7 +9,7 @@
 		        <i class="material-icons" id='menu-icon'>menu</i>
             </div>
             <div id="product-container" class=''>
-                <ProductCategories OnClick="@RenderComponent" ></ProductCategories>
+                <ProductCategories OnClick="@RenderComponent"></ProductCategories>
                     @CustomRender
 
 
@@ -21,7 +21,7 @@
 
 
         <div id='right' class='container col-4 bg-white'>
-            <div id='order-container'></div>
+            <div id='order-container'>@ProductContainer.CustomRender</div>
                 <div id='checkout-container'>
                     <div id="price-container" class='text-muted'>
                         <p id='discount' >Discount</p>
@@ -40,7 +40,7 @@
     </div>
 
 @code {
-    public int i;
+    public int i = 1;
     public int amountClicked;
     List<RenderFragment> list = new List<RenderFragment>();
     RenderFragment CustomRender { get; set;}
