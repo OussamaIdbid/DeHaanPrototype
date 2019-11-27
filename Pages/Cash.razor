@@ -1,5 +1,6 @@
 @page "/cash"
 @inject IJSRuntime JsRuntime
+
 <div class="mat-blazor-demo-theme-app-row">
     <div id='main-container' class='container d-inline-flex flex-row shadow-lg'>
 
@@ -8,6 +9,8 @@
 
 		        <i class="material-icons" id='menu-icon'>menu</i>
             </div>
+     
+            <Receipt Data="@Data"></Receipt>
             <div id="product-container" class=''>
                 <ProductCategories OnClick="@RenderComponent"></ProductCategories>
                     @CustomRender
@@ -42,6 +45,8 @@
 @code {
     public int i = 1;
     public int amountClicked;
+    public CashModel.Receipt Data { get; set; }
+
     List<RenderFragment> list = new List<RenderFragment>();
     RenderFragment CustomRender { get; set;}
     RenderFragment CreateItem() => builder =>
@@ -53,21 +58,30 @@
 
 
     };
-        void RenderComponent(MouseEventArgs e){
-        
+    void RenderComponent(MouseEventArgs e){
+
 
         CustomRender = CreateItem();
         getIndexClickedCategory();
-        
 
 
-        
-        
+
+
+
     }
-        public async Task getIndexClickedCategory(){
+    public async Task getIndexClickedCategory(){
         var response = await JsRuntime.InvokeAsync<int>(identifier:"getButtonIndex",i);
         //await JsRuntime.InvokeVoidAsync("setElementTextById","indexClicked",response);
         //Console.WriteLine(index);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Data = new CashModel.Receipt();
+        Data.CreateDateTime = DateTime.Now;
+        Data.Lines.Add(new CashModel.ReceiptLine { Description = "poep", Price = 1.23, Quantity = 2 });
+        Data.Lines.Add(new CashModel.ReceiptLine { Description = "poep", Price = 1.23, Quantity = 2 });
+        Data.Lines.Add(new CashModel.ReceiptLine { Description = "poep", Price = 1.23, Quantity = 2 });
     }
 
 
