@@ -26,22 +26,22 @@
 @code{
 
     IEnumerable<Category> categories;
-    IEnumerable<Product> products; 
-    int index;
+    IEnumerable<Product> products;
+    public int id; 
+    public int amountClicked;
+
     [Parameter]
-    public EventCallback<MouseEventArgs> OnClick { get; set; }
-     
+    public int index {get; set;}
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set;}
+
 
     protected override async Task OnInitializedAsync()  
     {  
         categories = await CategoryService.GetCategories();
-    }
-    async Task getIndexClickedCategory(){
-        var response = await JsRuntime.InvokeAsync<int>( identifier:"getButtonIndex",
-            index);
-        await JsRuntime.InvokeVoidAsync("setElementTextById","indexClicked",response);
-        Console.WriteLine(index);
+
     }
 
+    
 
 }  

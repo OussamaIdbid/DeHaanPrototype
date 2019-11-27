@@ -25,6 +25,7 @@
             </div>
             
                 </div>
+                
 
 
         
@@ -46,8 +47,20 @@
         products = await ProductService.GetProductsByCategory(Id);  
         
     }
+    public static RenderFragment CustomRender { get; set;}
+    public RenderFragment CreateItem() => builder =>
+    {
 
-    private void NotifyStateChanged() => OnChange?.Invoke();
+        builder.OpenComponent(0, typeof(OrderLine));
+        builder.AddAttribute(1, "name", "Test");
+        builder.AddAttribute(2, "amount", 3);
+        builder.AddAttribute(3, "price", 3.89);
+        builder.CloseComponent();
+
+
+    };
+
+    
 
     
     
