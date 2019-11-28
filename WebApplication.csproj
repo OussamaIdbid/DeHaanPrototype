@@ -6,7 +6,7 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'WebApplication1' ">
     <StartAction>Project</StartAction>
-    <ApplicationURL>https://localhost:5001;http://localhost:5000</ApplicationURL>
+    <ApplicationURL>http://localhost:5000</ApplicationURL>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.30" />
@@ -15,4 +15,64 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="1.0.19269.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="CashUI\_Imports.razor" />
+    <Content Remove="CashUI\bin\Debug\netstandard2.0\CashUI.deps.json" />
+    <Content Remove="CashUI\Component1.razor" />
+    <Content Remove="CashUI\obj\project.assets.json" />
+    <Content Remove="CashUI\obj\CashUI.csproj.nuget.dgspec.json" />
+    <Content Remove="CashModels\bin\Debug\netstandard2.1\CashModels.deps.json" />
+    <Content Remove="CashModels\obj\CashModels.csproj.nuget.dgspec.json" />
+    <Content Remove="CashModels\obj\project.assets.json" />
+    <Content Remove="test\appsettings.Development.json" />
+    <Content Remove="CashUI\_Imports.razor" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="CashUI\ExampleJsInterop.cs" />
+    <Compile Remove="CashUI\obj\Debug\netstandard2.0\RazorDeclaration\Component1.razor.g.cs" />
+    <Compile Remove="CashUI\obj\Debug\netstandard2.0\RazorDeclaration\_Imports.razor.g.cs" />
+    <Compile Remove="CashUI\obj\Debug\netstandard2.0\Razor\_Imports.razor.g.cs" />
+    <Compile Remove="CashUI\obj\Debug\netstandard2.0\Razor\Component1.razor.g.cs" />
+    <Compile Remove="CashUI\obj\Debug\netstandard2.0\CashUI.AssemblyInfo.cs" />
+    <Compile Remove="CashModels\Class1.cs" />
+    <Compile Remove="CashModels\obj\Debug\netstandard2.1\CashModels.AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="CashUI\obj\CashUI.csproj.nuget.cache" />
+    <None Remove="CashUI\obj\CashUI.csproj.nuget.g.props" />
+    <None Remove="CashUI\obj\CashUI.csproj.nuget.g.targets" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.RazorComponent.input.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.csprojAssemblyReference.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.assets.cache" />
+    <None Remove="CashUI\wwwroot\exampleJsInterop.js" />
+    <None Remove="CashUI\wwwroot\styles.css" />
+    <None Remove="CashUI\wwwroot\background.png" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\staticwebassets\CashUI.StaticWebAssets.Manifest.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\staticwebassets\CashUI.StaticWebAssets.xml" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\RazorDeclaration\CashUI.dll" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\RazorDeclaration\CashUI.pdb" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.TagHelpers.input.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.TagHelpers.output.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.RazorCoreGenerate.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.AssemblyInfoInputs.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.dll" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.pdb" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.RazorTargetAssemblyInfo.cache" />
+    <None Remove="CashUI\obj\Debug\netstandard2.0\CashUI.csproj.FileListAbsolute.txt" />
+    <None Remove="CashModels\bin\Debug\netstandard2.1\CashModels.dll" />
+    <None Remove="CashModels\obj\CashModels.csproj.nuget.g.props" />
+    <None Remove="CashModels\obj\CashModels.csproj.nuget.g.targets" />
+    <None Remove="CashModels\obj\CashModels.csproj.nuget.cache" />
+    <None Remove="CashModels\obj\Debug\netstandard2.1\CashModels.assets.cache" />
+    <None Remove="CashModels\obj\Debug\netstandard2.1\CashModels.csprojAssemblyReference.cache" />
+    <None Remove="CashModels\obj\Debug\netstandard2.1\CashModels.AssemblyInfoInputs.cache" />
+    <None Remove="CashModels\obj\Debug\netstandard2.1\CashModels.dll" />
+    <None Remove="CashModels\obj\Debug\netstandard2.1\CashModels.pdb" />
+    <None Remove="CashModels\obj\Debug\netstandard2.1\CashModels.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="CashUI\CashUI.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
